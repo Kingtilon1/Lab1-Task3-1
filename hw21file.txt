@@ -1,0 +1,47 @@
+[tbobb@sol25 Workcopy]$ ls
+[tbobb@sol25 Workcopy]$ cd
+[tbobb@sol25 ~]$ ls
+classhw  classrepo  schoolrepo  therepo  tilonrepo  toolsss  Workcopy
+[tbobb@sol25 ~]$ cd classrepo
+[tbobb@sol25 classrepo]$ ls
+conf  db  format  hooks  locks  README.txt
+[tbobb@sol25 classrepo]$ cd
+[tbobb@sol25 ~]$ cd schoolrepo
+[tbobb@sol25 schoolrepo]$ ls
+conf  db  format  hooks  locks  README.txt
+[tbobb@sol25 schoolrepo]$ cd
+[tbobb@sol25 ~]$ cd Workcopy
+[tbobb@sol25 Workcopy]$ ls
+[tbobb@sol25 Workcopy]$ ls
+[tbobb@sol25 Workcopy]$ svnadmin create Work
+[tbobb@sol25 Workcopy]$ ls
+Work
+[tbobb@sol25 Workcopy]$ touch thefile.txt
+[tbobb@sol25 Workcopy]$ pwd
+/users1/st/tbobb/Workcopy
+[tbobb@sol25 Workcopy]$ svn checkout file:///users1/st/tbobb/Workcopy/
+svn: E180001: Unable to connect to a repository at URL 'file:///users1/st/tbobb/                                                                                                                                                                                                                                             Workcopy'
+svn: E180001: Unable to open an ra_local session to URL
+svn: E180001: Unable to open repository 'file:///users1/st/tbobb/Workcopy'
+[tbobb@sol25 Workcopy]$ ls
+thefile.txt  Work
+[tbobb@sol25 Workcopy]$ svn checkout file:///users1/st/tbobb/Workcopy/Work/
+Checked out revision 0.
+[tbobb@sol25 Workcopy]$ svn add thefile.txt
+svn: E155007: '/users1/st/tbobb/Workcopy' is not a working copy
+[tbobb@sol25 Workcopy]$ cd Work
+[tbobb@sol25 Work]$ svn add thefile.txt
+svn: warning: W155010: '/users1/st/tbobb/Workcopy/Work/thefile.txt' not found
+svn: E200009: Could not add all targets because some targets don't exist
+svn: E200009: Illegal target for the requested operation
+[tbobb@sol25 Work]$ touch newfiless.txt
+[tbobb@sol25 Work]$ ls
+conf  db  format  hooks  locks  newfiless.txt  README.txt
+[tbobb@sol25 Work]$ vim newfiless.txt
+[tbobb@sol25 Work]$ svn add newfiless.txt
+A         newfiless.txt
+[tbobb@sol25 Work]$ svn commit -m "I added somestuff to the file"
+Adding         newfiless.txt
+Transmitting file data .
+Committed revision 1.
+[tbobb@sol25 Work]$
